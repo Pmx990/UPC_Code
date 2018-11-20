@@ -13,7 +13,6 @@ int main(){
 			cout<<"Loading the data..."<<endl;
 			BinarySearchTree<upc> tree = BinarySearchTree<upc>();
 			ifstream readFile("upc_corpus.txt");
-			string blank = "n";
 			string temp2;
 			string key;
 			string value;
