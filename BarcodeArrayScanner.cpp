@@ -10,13 +10,13 @@ using namespace std;
 
 int main(){
 			cout<<"Loading the data..."<<endl;
-			upc arr[1045914];
+			upc arr[16759];
 			int c = 0;
 			string temp2;
 			string key;
 			string value;
 
-			ifstream readFile("upc_corpus.txt");
+			ifstream readFile("upc_test.txt");
 
 			while(getline(readFile,temp2)){
 				istringstream ss(temp2);
@@ -25,9 +25,10 @@ int main(){
 				upc temp(key,value);
 				arr[c] = temp;
 				c++;
+
 			}
 			c=0;
-			string test="689076484763";
+			string test="5267901704";
 			string test2 = "1";
 
 			upc temp3(test,test2);
