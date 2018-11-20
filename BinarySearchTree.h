@@ -115,8 +115,10 @@ void BinarySearchTree<T>::insert(node<T>*& p, T& item){
 
 template <class T>
 T BinarySearchTree<T>::search(node<T>* p, T& item){
-	if(p == NULL)
-		cout<<"Not found"<<endl;
+	if(p == NULL){
+		cout<<"The following is Not found:";
+		return item;
+		}
 	else if(item<p->data)
 		return search(p->left, item);
 	else if(item>p->data)
