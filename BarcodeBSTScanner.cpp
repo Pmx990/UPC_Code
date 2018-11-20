@@ -3,7 +3,7 @@
 #include <fstream>
 #include <cassert>
 #include <string>
-#include "DataType.h"
+#include "BinarySearchTree.h"
 
 using namespace std;
 
@@ -19,9 +19,9 @@ int main(){
 				istringstream ss(temp2);
 				getline(ss,key,',');
 				getline(ss,value,',');
-				upc temp = {key,value};
+				//upc temp = {key,value};
 
-				tree.insert(temp);
+				tree.insert2(key,value);
 			}
 			readFile.close();
 			return 0;
