@@ -2,6 +2,7 @@
 #ifndef BINARYSEARCHTREE_H_
 #define BINARYSEARCHTREE_H_
 #include <iostream>
+#include "DataType.h"
 using namespace std;
 
 template <class T>
@@ -26,7 +27,7 @@ public:
 	T findMin(T& e){return findMin(root,e);}
 	void deletenode(T& item){deletenode(root, item);}
 	~BinarySearchTree(){destroy(root);}
-
+	void insert2(T& item1, T& item2){insert2(root,item1,item2);}
 private:
 	node<T>* root;
 	void printInOrder(node<T>*);
@@ -40,6 +41,7 @@ private:
 	T findMax(node<T>*,T&);
 	T findMin(node<T>*, T&);
 	void deletenode(node<T>*&, T&);
+	void insert2(node<T>*&,T&,T&);
 };
 
 
@@ -170,6 +172,26 @@ void BinarySearchTree<T>::deletenode(node<T>*& p, T& item){
 	}
 }
 
+template <class T>
+void BinarySearchTree<T>::insert2(node<T>*& p,T& key,T& value){
+
+	string temp1;
+	string temp2;
+	istringstream ss(p->data);
+	getline(ss,temp1,',');
+	getline(ss,temp2,',');
+
+	if(p == NULL){
+		p = new node<T>;
+		p->data = key+","+value;
+		p->left = p->right = NULL;
+	}
+	else if(key<temp1){
+		insert(p->left, key, value);
+	}else{
+		insert(p->right, key, value);
+	}
+}
+
 
 #endif /* BINARYSEARCHTREE_H_ */
-
