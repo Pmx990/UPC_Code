@@ -4,6 +4,46 @@
 #include <cassert>
 #include <string>
 #include "BinarySearchTree.h"
+#include "DataType.cpp"
+
+using namespace std;
+
+int main(){
+			BinarySearchTree<upc> tree = BinarySearchTree<upc>();
+			ifstream readFile("upc_corpus.txt");
+			string blank = "n";
+			string temp2;
+			string key;
+			string value;
+			int a = 0;
+			while(getline(readFile,temp2)){
+				istringstream ss(temp2);
+
+				getline(ss,key,',');
+
+				getline(ss,value,',');
+				upc temp(key,value);
+				tree.insert(temp);
+			}
+
+			string tes = "22996120241";
+			string nn = "n";
+			upc tt2(tes,nn);
+			cout<<tree.search(tt2)<<endl;
+			readFile.close();
+			return 0;
+}
+
+
+
+
+
+/*#include <iostream>
+#include <sstream>
+#include <fstream>
+#include <cassert>
+#include <string>
+#include "BinarySearchTree.h"
 
 using namespace std;
 
@@ -30,6 +70,6 @@ int main(){
 			readFile.close();
 			return 0;
 }
-
+*/
 
 
