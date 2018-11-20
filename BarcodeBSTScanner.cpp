@@ -5,10 +5,12 @@
 #include <string>
 #include "BinarySearchTree.h"
 #include "DataType.cpp"
+#include <time.h>
 
 using namespace std;
 
 int main(){
+			cout<<"Loading the data..."<<endl;
 			BinarySearchTree<upc> tree = BinarySearchTree<upc>();
 			ifstream readFile("upc_corpus.txt");
 			string blank = "n";
@@ -25,12 +27,23 @@ int main(){
 				upc temp(key,value);
 				tree.insert(temp);
 			}
-
-			string tes = "22996120241";
+			while(true){
+			string tes;
+			cout<<endl<<"Please Enter a upc number"<<endl;
+			cout<<"Type E to exit the program"<<endl;
+			cin>>tes;
+			if (tes=="E")
+				break;
 			string nn = "n";
 			upc tt2(tes,nn);
+
+			clock_t t;
+			t = clock();
 			cout<<tree.search(tt2)<<endl;
+			t = clock() - t;
+			cout << "BST time: " << t << " miliseconds" << endl;
 			readFile.close();
+		}
 			return 0;
 }
 
