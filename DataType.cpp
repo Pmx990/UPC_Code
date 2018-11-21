@@ -2,9 +2,10 @@
 #include <iostream>
 
 upc::upc(){
-	key = "null";
-	value = "null";
+	key = "defult";
+	value = "defult";
 }
+
 upc::upc(string k, string v){
 	this->key = k;
 	this->value = v;
@@ -25,6 +26,7 @@ string upc::rKey(){
 bool upc::operator<(const upc &t){
 	return key<t.key;
 }
+//the tree will use the key to do the comparsion
 
 bool upc::operator>(const upc &t){
 	return key>t.key;
